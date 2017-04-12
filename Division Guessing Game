@@ -1,0 +1,28 @@
+            int num01;
+            int num02;
+            int num03;
+            int guess;
+            char playAgain;
+
+            Console.WriteLine("In this game you will enter in two integer values, the programm will divide them, and you will make a guess.");
+            Console.Write("Please enter in the first integer? ");
+            num01 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please enter a second integer, to divide by? ");
+            num02 = Convert.ToInt32(Console.ReadLine());
+
+            num03 = num01 / num02;
+
+            Start:
+
+            Console.Write("Please make a guess: ");
+            guess = Convert.ToInt32(Console.ReadLine());
+
+            if (guess == num03)
+            {
+                Console.WriteLine("You guessed correctly! Good job, boi!");
+            }
+            else
+            {
+                Console.WriteLine("You are wrong. Make another guess.");
+                goto Start; //Jumps to "Start:"
+            }
