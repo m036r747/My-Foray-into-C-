@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Start:
+            Redo:
+
+            Console.Write("What value would you like to start at? ");
+            double value = Convert.ToInt32(Console.ReadLine()); //Convert the value read in to
+            Console.Write("What number would you like to stop at? "); 
+            double incrementTo = Convert.ToInt32(Console.ReadLine()); //convert the value read in
+
+            if (value % 2 != 0) //Test to see if the value is even
+            {
+                Console.WriteLine("Please enter an even number.");
+                goto Redo; // Return program to "Redo:"
+            }
+            else if (value % 2 == 0)
+            {
+                for(double i = value ; i < incrementTo + 1 ; i += 2)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
