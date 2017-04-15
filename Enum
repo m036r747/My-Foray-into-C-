@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2dArray
+{
+    //Inheritance - Extreme importance, pillar of object oriented programming
+    //ENUMS - A type that consists of constants we associate with a name
+
+    class Program
+    {
+
+        enum Breed { Bulldog, Boxer, Chihuaha, Briard }; //Do one line if not a lot of types
+
+        // Base class
+        class Animal
+        {
+            public string name;
+            public int age;
+            public float happiness;
+        }
+
+        //Derived class
+        class Dog: Animal
+        {
+            public Breed breed;
+
+            public Dog (string _name, int _age, float _happiness, Breed _breed) //Dog constructor
+            {
+                name = _name;
+                age = _age;
+                happiness = _happiness;
+
+                breed = _breed;
+            }
+
+            public void Print()
+            {
+                Console.WriteLine("Name: " + name);
+                Console.WriteLine("Age: " + age);
+                Console.WriteLine("Happiness: " + happiness);
+
+                Console.WriteLine("Breed: " + breed);
+
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Dog hulk = new Dog("Hulk", 6, 23.1f, Breed.Briard);
+            hulk.Print();
+
+            Console.ReadKey();
+        }
+
+    }
+}
