@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Methods are way to group like bunches of code together and more easy to read
+            Console.Write("Let's add two numberts together! Gimme numba one: ");
+            int num01 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Gimme number two: ");
+            int num02 = Convert.ToInt32(Console.ReadLine());
+
+            //int num03 = Add(num01, num02);
+            if (Add(num01, num02) > 10)
+                Console.WriteLine("Number greater than 9");
+            else
+                Console.WriteLine();
+
+            Console.WriteLine(Add(num01, num02));
+            
+            Console.ReadKey();
+        }
+
+        public static int Add(int one, int two) // Methods can have same names and different parameters
+        {
+            return one + two;
+        }
+    }
+}
