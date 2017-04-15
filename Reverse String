@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace projec1
+{
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            Program reverser = new Program();
+
+            string phrase;
+            Console.Write("Give me a phrase to reverse? ");
+            phrase = Console.ReadLine();
+            Console.WriteLine(); //Put a blank line in between
+
+            Console.WriteLine("Here is the reversed phrase: " + reverser.ReverseString(phrase));
+
+            Console.ReadKey();
+        }
+
+        public string ReverseString(string _phrase)
+        {
+            Console.WriteLine("The original phrase: " + _phrase);
+
+            char[] chArray = _phrase.ToCharArray();
+            Array.Reverse(chArray);
+            return new string(chArray);
+        }
+    }
+}
