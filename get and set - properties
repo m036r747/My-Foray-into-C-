@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2dArray
+{
+    //Inheritance - Extreme importance, pillar of object oriented programming
+    //ENUMS - A type that consists of constants we associate with a name
+    //Properties: getters and setters
+
+    class Program
+    {
+        //Let's create our own getter and setter
+        class Player
+        {
+            private int maxHealth = 100;
+            private int minHealth = 0;
+
+            private int _health = 100;
+            public int health
+            {
+                get
+                {
+                    return _health; // can be done on one line! this is a good way to modify a public variable without being able to access it
+                }
+
+                set
+                {
+                    if (value <= minHealth)
+                    {
+                        _health = 0;
+                    }
+                    else if (value >= maxHealth)
+                    {
+                        _health = maxHealth;
+                    }
+                    else
+                    {
+                        _health = value;
+                    }
+                }
+            }
+
+            public void Damage (int _dmg)
+            {
+                _health -= _dmg;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Player tom = new Player();
+            //Console.WriteLine(tom.health);
+            //tom.health = 40; //Only goes on behind the scenes. SOLUTION: Make health a access only variable
+            //Console.WriteLine(tom.health);
+            tom.Damage(3);
+            Console.WriteLine(tom.health);
+            tom.health = 20; //How to access a set
+            Console.WriteLine(tom.health);
+            tom.health -= 200;
+            Console.WriteLine(tom.health);
+            tom.health += 400;
+            Console.WriteLine(tom.health);
+
+            //DateTime current = DateTime.Now; // public static DateTime; only allows get
+            //Console.WriteLine(current);
+
+            Console.ReadKey();
+        }
+
+    }
+}
