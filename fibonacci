@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace projec1
+{
+
+    class Program
+    {
+        public void NthDigit(int _position)
+        {
+            int[] fibonacci = new int[2];
+            fibonacci[0] = 0;
+            fibonacci[1] = 1;
+
+            if (_position == 0)
+            {
+                Console.WriteLine("The " + _position + " of the sequence is " + fibonacci[0]);
+            }
+            else if (_position == 1)
+            {
+                Console.WriteLine("The " + _position + " of the sequence is " + fibonacci[1]);
+            }
+            else
+            {
+                for (int i = 2; i < _position; i++)
+                {
+                    int newNum = fibonacci[0] + fibonacci[1];
+                    fibonacci[0] = fibonacci[1];
+                    fibonacci[1] = newNum;
+                }
+
+                Console.WriteLine("The " + _position + " of the sequence is " + fibonacci[1]);
+            }
+
+
+        }
+
+        static void Main(string[] args)
+        {
+            int position;
+
+            Console.Write("Tell me what number in the fibonacci sequence would you like me to find? ");
+            position = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(); //prints blank line
+
+            Program getMyNumber = new Program();
+            getMyNumber.NthDigit(position);
+
+            Console.ReadKey();
+
+        }
+
+    }
+}
