@@ -1,0 +1,91 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2dArray
+{
+
+    class Animal
+    {
+        // Class variables
+
+        public int Count = 0;
+        public static int Countz = 420;
+
+        public string name;
+        private int age;
+        private float happiness;
+
+        // Class Constructors
+
+        public Animal () //Class constructor - called right at the same time as a class; default class constructor
+        {
+            name = "Spotty";
+            age = 6;
+            happiness = 0.5f;
+
+            Countz++;
+        }
+
+        public Animal (string _name, int _age, float _happiness) // _ are convention
+        {
+            name = _name;
+            age = _age;
+            happiness = _happiness;
+
+            Countz++;
+        }
+
+        // Class methods
+
+        void Test ()
+        {
+            Console.WriteLine(name);
+        }
+
+        public void Print() //public is the access modifier
+        {
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Name: " + age);
+            Console.WriteLine("Name: " + happiness);
+        }
+
+    } // Access modifiers: public; static
+    // Public: can be accessed through reference
+    // Private: Data only accessed from inside class
+    // Static: Not bound to instance of class, shared
+    // Instantiate: 
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Animal duck = new Animal();
+
+            Console.WriteLine(duck.name);
+            duck.name = "miranda";
+            Console.WriteLine(duck.name);
+
+            duck.Print();
+            duck.Count++;
+
+            Animal.Countz += 1; // Access statics by accessing the class; countz shared by everything
+
+            Animal cat = new Animal();
+            Console.WriteLine(cat.Count); // You get a zero and not one b/c dog.Count got incremented; count not shared by class
+
+            Animal dogz = new Animal();
+            Animal catz = new Animal("Mr. Beans", 10, 0.8f);
+
+            catz.Print();
+
+            Console.WriteLine("Num of Animals: " + Animal.Countz);
+
+            Console.ReadKey();
+        }
+
+    }
+}
